@@ -2,7 +2,7 @@
 
 A modern, neon-themed **Brick Breaker Game** built using HTML5, CSS3, and Vanilla JavaScript. Inspired by classic arcade games with glowing effects, particle animations, and responsive gameplay.
 
-![Brick Breaker Screenshot](Brick Breaker Game.png)
+📷 Screenshot (Brick Breaker Game.png)
 
 ---
 
