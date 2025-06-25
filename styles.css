@@ -1,0 +1,264 @@
+:root {
+    --neon-blue: #08f;
+    --neon-pink: #f0f;
+    --neon-purple: #90f;
+    --neon-green: #0f8;
+    --dark-bg: #111122;
+    --darker-bg: #0a0a1a;
+    --ui-bg: rgba(10, 10, 30, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--darker-bg);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.game-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 100, 255, 0.2);
+}
+
+canvas {
+    display: block;
+    background: linear-gradient(to bottom, #000022, #000044);
+    width: 100%;
+}
+
+.game-ui {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.ui-panel {
+    display: flex;
+    gap: 30px;
+    background-color: var(--ui-bg);
+    padding: 12px 24px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 150, 255, 0.2);
+}
+
+.ui-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ui-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.ui-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.overlay-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 30, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.overlay-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.neon-text {
+    color: white;
+    text-shadow: 0 0 10px var(--neon-blue), 
+                 0 0 20px var(--neon-blue), 
+                 0 0 30px var(--neon-blue);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.score-display {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.neon-button {
+    background: none;
+    border: 2px solid var(--neon-blue);
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+}
+
+.neon-button:hover {
+    background-color: rgba(0, 100, 255, 0.2);
+    box-shadow: 0 0 10px var(--neon-blue), 
+                0 0 20px var(--neon-blue);
+    transform: translateY(-2px);
+}
+
+.neon-button:active {
+    transform: translateY(0);
+}
+
+.neon-button.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px var(--neon-blue); }
+    50% { box-shadow: 0 0 20px var(--neon-blue); }
+    100% { box-shadow: 0 0 5px var(--neon-blue); }
+}
+
+.controls-info {
+    margin: 20px 0;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.highlight {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+/* Particle effects */
+.particle {
+    position: absolute;
+    background-color: var(--neon-blue);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+/* Add these new styles at the end of your existing CSS */
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--darker-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.loading-container {
+    text-align: center;
+    width: 300px;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 50, 100, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #08f, #0f8);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.loading-text {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.loading-percentage {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Animation for loading text */
+@keyframes loadingPulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.loading-text {
+    animation: loadingPulse 1.5s infinite;
+}

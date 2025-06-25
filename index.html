@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">LOADING...</div>
+            <div class="loading-percentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-wrapper">
+        <div class="game-container">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            
+            <div class="game-ui">
+                <div class="ui-panel">
+                    <div class="ui-element">
+                        <span class="ui-label">SCORE</span>
+                        <span id="score" class="ui-value">0</span>
+                    </div>
+                    <div class="ui-element">
+                        <span class="ui-label">LIVES</span>
+                        <span id="lives" class="ui-value">3</span>
+                    </div>
+                    <div class="ui-element">
+                        <span class="ui-label">LEVEL</span>
+                        <span id="level" class="ui-value">1</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="gameOver" class="overlay-screen">
+                <div class="overlay-content">
+                    <h2 class="neon-text">GAME OVER</h2>
+                    <p class="score-display">FINAL SCORE: <span id="finalScore">0</span></p>
+                    <button id="restartBtn" class="neon-button">PLAY AGAIN</button>
+                </div>
+            </div>
+            
+            <div id="startScreen" class="overlay-screen">
+                <div class="overlay-content">
+                    <h1 class="neon-text title">BRICK BREAKER GAME</h1>
+                    <div class="controls-info">
+                        <p>Use <span class="highlight">MOUSE</span> or <span class="highlight">ARROW KEYS</span> to move</p>
+                    </div>
+                    <button id="startBtn" class="neon-button pulse">START GAME</button>
+                </div>
+            </div>
+            
+            <div id="levelComplete" class="overlay-screen">
+                <div class="overlay-content">
+                    <h2 class="neon-text">LEVEL COMPLETE!</h2>
+                    <p class="score-display">SCORE: <span id="levelScore">0</span></p>
+                    <button id="nextLevelBtn" class="neon-button">NEXT LEVEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
