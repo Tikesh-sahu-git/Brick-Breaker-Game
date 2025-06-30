@@ -54,7 +54,7 @@ brick-breaker-game/
 ├── script.js
 └── README.md
 
----
+---  
 
 ## 🙌 Credits
 
