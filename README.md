@@ -19,11 +19,6 @@ A modern, neon-themed **Brick Breaker Game** built using HTML5, CSS3, and Vanill
 
 ---
 
-## 🚀 Live Demo
-
-👉 [Play Online](https://tikesh-sahu-git.github.io/Brick-Breaker-Game/)
-
----
 
 ## 🛠️ Tech Stack
 
@@ -47,13 +42,12 @@ A modern, neon-themed **Brick Breaker Game** built using HTML5, CSS3, and Vanill
 
 
 ## 📂 Project Structure
-
+```
 brick-breaker-game/
 ├── index.html
 ├── styles.css
-├── script.js
-└── README.md
-
+└── script.js
+```
 ---  
 
 ## 🙌 Credits
